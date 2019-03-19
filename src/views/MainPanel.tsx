@@ -3,6 +3,7 @@ import * as RX from 'reactxp';
 
 interface MainPanelProps {
     onPressNavigate: () => void;
+    onPressLogin: () => void;
 }
 
 const styles = {
@@ -91,6 +92,12 @@ export class MainPanel extends RX.Component<MainPanelProps, RX.Stateless> {
                                 See More Examples
                             </RX.Text>
                         </RX.Button>
+
+                        <RX.Button style={ styles.roundButton } onPress={ this._onPressLogin }>
+                            <RX.Text style={ styles.buttonText }>
+                                Login
+                            </RX.Text>
+                        </RX.Button>
                     </RX.View>
                 </RX.ScrollView>
             </RX.View>
@@ -99,5 +106,9 @@ export class MainPanel extends RX.Component<MainPanelProps, RX.Stateless> {
 
     private _onPressNavigate = () => {
         this.props.onPressNavigate();
+    }
+
+    private _onPressLogin = () => {
+        this.props.onPressLogin();
     }
 }

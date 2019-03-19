@@ -4,10 +4,12 @@ import Navigator, { NavigatorDelegateSelector as DelegateSelector, Types } from 
 
 import { MainPanel } from './MainPanel';
 import { SecondPanel } from './SecondPanel';
+import { LoginPanel } from './LoginPanel';
 
 enum NavigationRouteId {
     MainPanel,
-    SecondPanel
+    SecondPanel,
+    LoginPanel
 }
 
 const styles = {
@@ -48,12 +50,17 @@ export class RootView extends RX.Component<RX.CommonProps, RX.Stateless> {
         switch (navigatorRoute.routeId) {
             case NavigationRouteId.MainPanel:
                 return (
-                    <MainPanel onPressNavigate={ this._onPressNavigate } />
+                    <MainPanel onPressNavigate={ this._onPressNavigate } onPressLogin={ this._onLoginPressBack }/>
                 );
 
             case NavigationRouteId.SecondPanel:
                 return (
                     <SecondPanel onNavigateBack={ this._onPressBack } />
+                );
+            
+            case NavigationRouteId.LoginPanel:
+                return (
+                    <LoginPanel onNavigateBack={ this._onPressBack } />
                 );
         }
 
@@ -72,6 +79,15 @@ export class RootView extends RX.Component<RX.CommonProps, RX.Stateless> {
     private _onPressBack = () => {
         if (this._navigator) {
             this._navigator.pop();
+        }
+    }
+
+    private _onLoginPressBack = () => {
+        if (this._navigator) {
+            this._navigator.push({
+                sceneConfigType: Types.NavigatorSceneConfigType.FadeWithSlide,
+                routeId: NavigationRouteId.LoginPanel
+            });
         }
     }
 }

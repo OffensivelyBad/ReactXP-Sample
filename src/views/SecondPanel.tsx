@@ -56,7 +56,7 @@ const styles = {
 export class SecondPanel extends RX.Component<SecondPanelProps, SecondPanelState> {
     readonly state: SecondPanelState = {
         progressValue: 0,
-        toggleValue: true
+        toggleValue: false
     };
 
     private _progressTimerToken: number | undefined;
