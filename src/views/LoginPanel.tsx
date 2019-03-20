@@ -7,6 +7,8 @@ interface LoginPanelProps extends RX.CommonProps {
 
 interface LoginPanelState {
   someValue?: number;
+  login: string;
+  password: string;
 }
 
 const styles = {
@@ -29,13 +31,22 @@ const styles = {
     marginVertical: 6,
     marginHorizontal: 12,
     color: '#ffffff',
+  }),
+  entryTextStyle: RX.Styles.createTextInputStyle({
+    fontSize: 15,
+    margin: 2,
+    backgroundColor: '#000000',
+    color: '#ffffff',
+    width: 100,
   })
 };
 
 export class LoginPanel extends RX.Component<LoginPanelProps, LoginPanelState> {
 
   readonly state: LoginPanelState = {
-    someValue: 0
+    someValue: 0,
+    login: '',
+    password: '',
   };
 
   render() {
@@ -43,6 +54,10 @@ export class LoginPanel extends RX.Component<LoginPanelProps, LoginPanelState> {
       <RX.View useSafeInsets={ true }>
         <RX.ScrollView style={ styles.scrollStyle }>
           <RX.View style={ styles.containerStyle }>
+
+            <RX.TextInput style={ styles.entryTextStyle } value={ this.state.login } onChangeText={ this._onChangeLoginText } />
+            <RX.TextInput style={ styles.entryTextStyle } value={ this.state.password } onChangeText={ this._onChangePasswordText } />
+
             <RX.Button style={ styles.buttonStyle } onPress={ this._onPressBack }>
               <RX.Text style={ styles.buttonTextStyle }>
                 Go Back
@@ -56,6 +71,14 @@ export class LoginPanel extends RX.Component<LoginPanelProps, LoginPanelState> {
 
   private _onPressBack = () => {
     this.props.onNavigateBack();
+  }
+
+  private _onChangeLoginText = (text: string) => {
+    this.setState({ login: text });
+  }
+
+  private _onChangePasswordText = (text: string) => {
+    this.setState({ password: text });
   }
 
 }
