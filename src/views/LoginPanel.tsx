@@ -15,29 +15,29 @@ const styles = {
   containerStyle: RX.Styles.createViewStyle({
     padding: 16,
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   }),
   scrollStyle: RX.Styles.createScrollViewStyle({
     alignSelf: 'stretch',
-    backgroundColor: '#fff333',
+    backgroundColor: '#fff333'
   }),
   buttonStyle: RX.Styles.createViewStyle({
     margin: 16,
     borderRadius: 16,
-    backgroundColor: '#333fff',
+    backgroundColor: '#333fff'
   }),
   buttonTextStyle: RX.Styles.createTextStyle({
     fontSize: 22,
     marginVertical: 6,
     marginHorizontal: 12,
-    color: '#ffffff',
+    color: '#ffffff'
   }),
   entryTextStyle: RX.Styles.createTextInputStyle({
     fontSize: 15,
     margin: 2,
     backgroundColor: '#000000',
     color: '#ffffff',
-    width: 100,
+    width: 100
   })
 };
 
@@ -46,7 +46,7 @@ export class LoginPanel extends RX.Component<LoginPanelProps, LoginPanelState> {
   readonly state: LoginPanelState = {
     someValue: 0,
     login: '',
-    password: '',
+    password: ''
   };
 
   render() {

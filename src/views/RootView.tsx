@@ -25,7 +25,8 @@ export class RootView extends RX.Component<RX.CommonProps, RX.Stateless> {
     componentDidMount() {
         if (this._navigator) {
             this._navigator.immediatelyResetRouteStack([{
-                routeId: NavigationRouteId.MainPanel,
+                // routeId: NavigationRouteId.MainPanel,
+                routeId: NavigationRouteId.LoginPanel,
                 sceneConfigType: Types.NavigatorSceneConfigType.Fade
             }]);
         }
@@ -57,7 +58,7 @@ export class RootView extends RX.Component<RX.CommonProps, RX.Stateless> {
                 return (
                     <SecondPanel onNavigateBack={ this._onPressBack } />
                 );
-            
+
             case NavigationRouteId.LoginPanel:
                 return (
                     <LoginPanel onNavigateBack={ this._onPressBack } />
