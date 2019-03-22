@@ -61,7 +61,7 @@ export class RootView extends RX.Component<RX.CommonProps, RX.Stateless> {
 
             case NavigationRouteId.LoginPanel:
                 return (
-                    <LoginPanel onNavigateBack={ this._onPressBack } />
+                    <LoginPanel onPressLogin={ this._onPressNavigate } />
                 );
         }
 
