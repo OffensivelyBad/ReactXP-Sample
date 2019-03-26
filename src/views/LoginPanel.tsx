@@ -61,8 +61,8 @@ export class LoginPanel extends RX.Component<LoginPanelProps, LoginPanelState> {
 
   readonly state: LoginPanelState = {
     someValue: 0,
-    login: 'login',
-    password: 'password'
+    login: '',
+    password: ''
   };
 
   render() {
@@ -77,8 +77,18 @@ export class LoginPanel extends RX.Component<LoginPanelProps, LoginPanelState> {
               </RX.Text>
             </RX.View>
 
-            <RX.TextInput style={ styles.entryTextStyle } value={ this.state.login } onChangeText={ this._onChangeLoginText } />
-            <RX.TextInput style={ styles.entryTextStyle } value={ this.state.password } onChangeText={ this._onChangePasswordText } />
+            <RX.TextInput
+              style={ styles.entryTextStyle }
+              value={ this.state.login }
+              onChangeText={ this._onChangeLoginText }
+              placeholder={ 'login' }
+            />
+            <RX.TextInput
+              style={ styles.entryTextStyle }
+              value={ this.state.password }
+              onChangeText={ this._onChangePasswordText }
+              placeholder={ 'password' } secureTextEntry={ true }
+            />
 
             <RX.Button style={ styles.buttonStyle } onPress={ this._onPressBack }>
               <RX.Text style={ styles.buttonTextStyle }>

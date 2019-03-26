@@ -5,11 +5,13 @@ import Navigator, { NavigatorDelegateSelector as DelegateSelector, Types } from 
 import { MainPanel } from './MainPanel';
 import { SecondPanel } from './SecondPanel';
 import { LoginPanel } from './LoginPanel';
+import { POSearchPanel } from './POSearchPanel';
 
 enum NavigationRouteId {
     MainPanel,
     SecondPanel,
-    LoginPanel
+    LoginPanel,
+    POSearchPanel
 }
 
 const styles = {
@@ -51,7 +53,7 @@ export class RootView extends RX.Component<RX.CommonProps, RX.Stateless> {
         switch (navigatorRoute.routeId) {
             case NavigationRouteId.MainPanel:
                 return (
-                    <MainPanel onPressNavigate={ this._onPressNavigate } onPressLogin={ this._onLoginPressBack }/>
+                    <MainPanel onPressNavigate={ this._onPressNavigate } onPressLogin={ this._onPressLogin }/>
                 );
 
             case NavigationRouteId.SecondPanel:
@@ -61,7 +63,12 @@ export class RootView extends RX.Component<RX.CommonProps, RX.Stateless> {
 
             case NavigationRouteId.LoginPanel:
                 return (
-                    <LoginPanel onPressLogin={ this._onPressNavigate } />
+                    <LoginPanel onPressLogin={ this._onPressLogin } />
+                );
+
+            case NavigationRouteId.POSearchPanel:
+                return (
+                    <POSearchPanel onPressLogout={ this._onPressLogout } />
                 );
         }
 
@@ -83,10 +90,19 @@ export class RootView extends RX.Component<RX.CommonProps, RX.Stateless> {
         }
     }
 
-    private _onLoginPressBack = () => {
+    private _onPressLogin = () => {
         if (this._navigator) {
             this._navigator.push({
                 sceneConfigType: Types.NavigatorSceneConfigType.FadeWithSlide,
+                routeId: NavigationRouteId.POSearchPanel
+            });
+        }
+    }
+
+    private _onPressLogout = () => {
+        if (this._navigator) {
+            this._navigator.push({
+                sceneConfigType: Types.NavigatorSceneConfigType.FloatFromBottom,
                 routeId: NavigationRouteId.LoginPanel
             });
         }
