@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as RX from 'reactxp';
+import { Button } from '../controls/Button';
 
 interface POSearchPanelProps extends RX.CommonProps {
   onPressLogout: () => void;
@@ -70,11 +71,15 @@ export class POSearchPanel extends RX.Component<POSearchPanelProps, POSearchPane
               placeholder={ 'PO search...' }
             />
 
-            <RX.Button style={ styles.buttonStyle } onPress={ this._onPressLogout }>
+            {/* <RX.Button style={ styles.buttonStyle } onPress={ this._onPressLogout }>
               <RX.Text style={ styles.buttonTextStyle }>
                 Logout
               </RX.Text>
-            </RX.Button>
+            </RX.Button> */}
+            <Button
+              title='Logout'
+              onPress= { this._onPressLogout }
+            />
 
           </RX.View>
         </RX.ScrollView>
