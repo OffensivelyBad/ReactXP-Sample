@@ -77,6 +77,7 @@ export class POSearchPanel extends RX.Component<POSearchPanelProps, POSearchPane
               </RX.Text>
             </RX.Button> */}
             <Button
+              overrideStyle={ {backgroundColor: 'red'} }
               title='Logout'
               onPress= { this._onPressLogout }
             />

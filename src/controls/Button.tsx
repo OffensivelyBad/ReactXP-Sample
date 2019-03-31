@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as RX from 'reactxp';
 
 export interface ButtonProps {
-  style?: object;
+  overrideStyle?: RX.Styles;
   title: string;
   onPress: () => void;
 }
@@ -31,7 +31,7 @@ export class Button extends RX.Component<ButtonProps, RX.Stateless> {
 
   render() {
     return (
-      <RX.Button style={ _styles.buttonStyle } onPress={ this.props.onPress }>
+      <RX.Button style={ [_styles.buttonStyle, this.props.overrideStyle] } onPress={ this.props.onPress }>
       <RX.Text style={ _styles.buttonTextStyle }>
         {this.props.title}
       </RX.Text>
