@@ -87,7 +87,7 @@ export class LoginPanel extends RX.Component<LoginPanelProps, LoginPanelState> {
               style={ styles.entryTextStyle }
               value={ this.state.password }
               onChangeText={ this._onChangePasswordText }
-              placeholder={ 'password' } 
+              placeholder={ 'password' }
               secureTextEntry={ true }
             />
 
