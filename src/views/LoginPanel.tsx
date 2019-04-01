@@ -1,5 +1,7 @@
 import * as React from 'react';
 import * as RX from 'reactxp';
+import { Button } from '../controls/Button';
+import { SearchTextField } from '../controls/SearchTextField';
 
 interface LoginPanelProps extends RX.CommonProps {
   onPressLogin: () => void;
@@ -20,30 +22,6 @@ const styles = {
   scrollStyle: RX.Styles.createScrollViewStyle({
     alignSelf: 'stretch',
     backgroundColor: '#f5fcff'
-  }),
-  buttonStyle: RX.Styles.createViewStyle({
-    margin: 16,
-    borderRadius: 6,
-    backgroundColor: '#333fff',
-    width: 300
-  }),
-  buttonTextStyle: RX.Styles.createTextStyle({
-    fontSize: 30,
-    marginVertical: 6,
-    marginHorizontal: 12,
-    color: '#ffffff',
-    alignSelf: 'center'
-  }),
-  entryTextStyle: RX.Styles.createTextInputStyle({
-    fontSize: 30,
-    marginBottom: 10,
-    backgroundColor: '#ffffff',
-    color: '#4a4a4a',
-    width: 300,
-    borderWidth: 1,
-    borderColor: '#4a4a4a',
-    borderRadius: 6,
-    textAlign: 'center'
   }),
   headerStyle: RX.Styles.createViewStyle({
     height: 300,
@@ -77,25 +55,22 @@ export class LoginPanel extends RX.Component<LoginPanelProps, LoginPanelState> {
               </RX.Text>
             </RX.View>
 
-            <RX.TextInput
-              style={ styles.entryTextStyle }
+            <SearchTextField
               value={ this.state.login }
-              onChangeText={ this._onChangeLoginText }
               placeholder={ 'login' }
+              onChangeText={ this._onChangeLoginText }
             />
-            <RX.TextInput
-              style={ styles.entryTextStyle }
+            <SearchTextField
               value={ this.state.password }
-              onChangeText={ this._onChangePasswordText }
               placeholder={ 'password' }
-              secureTextEntry={ true }
+              onChangeText={ this._onChangePasswordText }
             />
 
-            <RX.Button style={ styles.buttonStyle } onPress={ this._onPressBack }>
-              <RX.Text style={ styles.buttonTextStyle }>
-                Login
-              </RX.Text>
-            </RX.Button>
+            <Button
+              onPress={ this._onPressBack }
+              title={ 'Login' }
+            />
+
           </RX.View>
         </RX.ScrollView>
       </RX.View>
