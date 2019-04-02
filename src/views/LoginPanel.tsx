@@ -4,7 +4,7 @@ import { Button } from '../controls/Button';
 import { SearchTextField } from '../controls/SearchTextField';
 
 interface LoginPanelProps extends RX.CommonProps {
-  onPressLogin: () => void;
+  onLoginSuccess: () => void;
 }
 
 interface LoginPanelState {
@@ -35,6 +35,11 @@ const styles = {
   })
 };
 
+const testLogin = {
+  login: 'test',
+  password: 'test'
+}
+
 export class LoginPanel extends RX.Component<LoginPanelProps, LoginPanelState> {
 
   readonly state: LoginPanelState = {
@@ -64,10 +69,11 @@ export class LoginPanel extends RX.Component<LoginPanelProps, LoginPanelState> {
               value={ this.state.password }
               placeholder={ 'password' }
               onChangeText={ this._onChangePasswordText }
+              secureTextEntry
             />
 
             <Button
-              onPress={ this._onPressBack }
+              onPress={ this._onPressLogin }
               title={ 'Login' }
             />
 
@@ -77,8 +83,24 @@ export class LoginPanel extends RX.Component<LoginPanelProps, LoginPanelState> {
     );
   }
 
-  private _onPressBack = () => {
-    this.props.onPressLogin();
+  private _onPressLogin = () => {
+    this._validateLogin(this.state.login, this.state.password);
+  }
+
+  private _validateLogin = (login: string, password: string) => {
+    if (login === testLogin.login && password === testLogin.password) {
+      this._onLoginSuccess();
+    } else {
+      this._onLoginFailed();
+    }
+  }
+
+  private _onLoginFailed = () => {
+    RX.Alert.show('Attention!', 'The login supplied is not correct. Please try again');
+  }
+
+  private _onLoginSuccess = () => {
+    this.props.onLoginSuccess();
   }
 
   private _onChangeLoginText = (text: string) => {
