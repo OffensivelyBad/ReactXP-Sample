@@ -16,6 +16,17 @@ const styles = {
     alignSelf: 'stretch',
     backgroundColor: '#f5fcff'
   }),
+  subScrollStyle: RX.Styles.createScrollViewStyle({
+    margin: 20,
+    flex: 1,
+    height: 300,
+    backgroundColor: '#333fff',
+  }),
+  subViewStyle: RX.Styles.createViewStyle({
+    height: 600,
+    flex: 1,
+    backgroundColor: '#fff333'
+  }),
   containerStyle: RX.Styles.createViewStyle({
     padding: 16,
     justifyContent: 'center',
@@ -68,6 +79,33 @@ export class POSearchPanel extends RX.Component<POSearchPanelProps, POSearchPane
               onChangeText= { this._onChangeSearchText }
               placeholder={ 'PO Search...'}
             />
+
+            <RX.ScrollView style={ styles.subScrollStyle }>
+              <RX.View style={ styles.subViewStyle }>
+                <RX.Text>testing123</RX.Text>
+                <RX.Text>testing123</RX.Text>
+                <RX.Text>testing123</RX.Text>
+                <RX.Text>testing123</RX.Text>
+                <RX.Text>testing123</RX.Text>
+                <RX.Text>testing123</RX.Text>
+                <RX.Text>testing123</RX.Text>
+                <RX.Text>testing123</RX.Text>
+                <RX.Text>testing123</RX.Text>
+                <RX.Text>testing123</RX.Text>
+                <RX.Text>testing123</RX.Text>
+                <RX.Text>testing123</RX.Text>
+                <RX.Text>testing123</RX.Text>
+                <RX.Text>testing123</RX.Text>
+                <RX.Text>testing123</RX.Text>
+                <RX.Text>testing123</RX.Text>
+                <RX.Text>testing123</RX.Text>
+                <RX.Text>testing123</RX.Text>
+                <RX.Text>testing123</RX.Text>
+                <RX.Text>testing123</RX.Text>
+                <RX.Text>testing123</RX.Text>
+                <RX.Text>testing123</RX.Text>
+              </RX.View>
+            </RX.ScrollView>
 
             <Button
               title='Logout'
