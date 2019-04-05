@@ -21,6 +21,12 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center'
   }),
+  headerStyle: RX.Styles.createViewStyle({
+    height: 300,
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin: 6
+  }),
   headerTextStyle: RX.Styles.createTextStyle({
     fontSize: 72,
     color: '#333fff'
@@ -50,9 +56,12 @@ export class POSearchPanel extends RX.Component<POSearchPanelProps, POSearchPane
       <RX.View useSafeInsets={ true }>
         <RX.ScrollView style={ styles.scrollStyle }>
           <RX.View style={ styles.containerStyle }>
-            <RX.Text style={ styles.headerTextStyle }>
-              PO List
-            </RX.Text>
+
+            <RX.View style={ styles.headerStyle }>
+              <RX.Text style={ styles.headerTextStyle }>
+                PO List
+              </RX.Text>
+            </RX.View>
 
             <SearchTextField
               value= { this.state.po }

@@ -5,7 +5,7 @@ export interface SearchTextFieldProps {
   searchStyle?: {};
   value: string;
   placeholder: string;
-  secureTextEntry: boolean;
+  secureTextEntry?: boolean;
   onChangeText: (text: string) => void;
 }
 
