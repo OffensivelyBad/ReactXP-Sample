@@ -2,6 +2,36 @@ import * as React from 'react';
 import * as RX from 'reactxp';
 import { Button } from '../controls/Button';
 import { SearchTextField } from '../controls/SearchTextField';
+import { ListView } from '../controls/ListView';
+import { VirtualListViewItemInfo, VirtualListViewCellRenderDetails } from 'reactxp-virtuallistview';
+
+const ITEMS = [{
+  key: 'header1',
+  height: 30,
+  title: 'Domestic Fruits',
+  template: 'header'
+}, {
+  key: 'banana',
+  height: 30,
+  title: 'Banana',
+  template: 'detail'
+}, {
+  key: 'apple',
+  height: 30,
+  title: 'Apple',
+  template: 'detail'
+}, 
+{
+  key: 'orange',
+  height: 30,
+  title: 'Orange',
+  template: 'detail'
+}, {
+  key: 'Grapes',
+  height: 30,
+  title: 'Grapes',
+  template: 'detail'
+}];
 
 interface POSearchPanelProps extends RX.CommonProps {
   onPressLogout: () => void;
@@ -9,6 +39,10 @@ interface POSearchPanelProps extends RX.CommonProps {
 
 interface POSearchPanelState {
   po: string;
+}
+
+interface ListViewItemInfo extends VirtualListViewItemInfo {
+  title: string;
 }
 
 const styles = {
@@ -19,13 +53,8 @@ const styles = {
   subScrollStyle: RX.Styles.createScrollViewStyle({
     margin: 20,
     flex: 1,
-    height: 300,
+    height: 100,
     backgroundColor: '#333fff',
-  }),
-  subViewStyle: RX.Styles.createViewStyle({
-    height: 600,
-    flex: 1,
-    backgroundColor: '#fff333'
   }),
   containerStyle: RX.Styles.createViewStyle({
     padding: 16,
@@ -81,30 +110,10 @@ export class POSearchPanel extends RX.Component<POSearchPanelProps, POSearchPane
             />
 
             <RX.ScrollView style={ styles.subScrollStyle }>
-              <RX.View style={ styles.subViewStyle }>
-                <RX.Text>testing123</RX.Text>
-                <RX.Text>testing123</RX.Text>
-                <RX.Text>testing123</RX.Text>
-                <RX.Text>testing123</RX.Text>
-                <RX.Text>testing123</RX.Text>
-                <RX.Text>testing123</RX.Text>
-                <RX.Text>testing123</RX.Text>
-                <RX.Text>testing123</RX.Text>
-                <RX.Text>testing123</RX.Text>
-                <RX.Text>testing123</RX.Text>
-                <RX.Text>testing123</RX.Text>
-                <RX.Text>testing123</RX.Text>
-                <RX.Text>testing123</RX.Text>
-                <RX.Text>testing123</RX.Text>
-                <RX.Text>testing123</RX.Text>
-                <RX.Text>testing123</RX.Text>
-                <RX.Text>testing123</RX.Text>
-                <RX.Text>testing123</RX.Text>
-                <RX.Text>testing123</RX.Text>
-                <RX.Text>testing123</RX.Text>
-                <RX.Text>testing123</RX.Text>
-                <RX.Text>testing123</RX.Text>
-              </RX.View>
+              <ListView
+                items={ ITEMS }
+                renderItem={ this._renderItem }
+              />
             </RX.ScrollView>
 
             <Button
@@ -114,6 +123,22 @@ export class POSearchPanel extends RX.Component<POSearchPanelProps, POSearchPane
 
           </RX.View>
         </RX.ScrollView>
+      </RX.View>
+    );
+  }
+
+  private _renderItem(details: VirtualListViewCellRenderDetails<ListViewItemInfo>) {
+    const viewStyle = RX.Styles.createViewStyle({
+      height: 20,
+      backgroundColor: '#fff',
+      alignItems: 'center'
+    }, false);
+
+    return (
+      <RX.View style={ viewStyle }>
+        <RX.Text>
+          { details.item.title }
+        </RX.Text>
       </RX.View>
     );
   }
