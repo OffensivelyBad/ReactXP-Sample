@@ -2,35 +2,40 @@ import * as React from 'react';
 import * as RX from 'reactxp';
 import { Button } from '../controls/Button';
 import { SearchTextField } from '../controls/SearchTextField';
-import { ListView } from '../controls/ListView';
-import { VirtualListViewItemInfo, VirtualListViewCellRenderDetails } from 'reactxp-virtuallistview';
+import { ListView, ListViewItemInfo, VirtualListViewCellRenderDetails } from '../controls/ListView';
+import { ListViewCell } from '../controls/ListViewCell';
 
 const ITEMS = [{
   key: 'header1',
-  height: 30,
-  title: 'Domestic Fruits',
-  template: 'header'
+  height: 50,
+  title: 'POs',
+  template: 'header',
+  backgroundColor: '#fff333'
 }, {
-  key: 'banana',
+  key: 'po1',
   height: 30,
-  title: 'Banana',
-  template: 'detail'
+  title: 'AS12345-1234',
+  template: 'detail',
+  backgroundColor: '#ffffff'
 }, {
-  key: 'apple',
+  key: 'po2',
   height: 30,
-  title: 'Apple',
-  template: 'detail'
+  title: 'SD12345-1234',
+  template: 'detail',
+  backgroundColor: '#ffffff'
 }, 
 {
-  key: 'orange',
+  key: 'po3',
   height: 30,
-  title: 'Orange',
-  template: 'detail'
+  title: 'DF12345-1234',
+  template: 'detail',
+  backgroundColor: '#ffffff'
 }, {
-  key: 'Grapes',
+  key: 'po4',
   height: 30,
-  title: 'Grapes',
-  template: 'detail'
+  title: 'FG12345-1234',
+  template: 'detail',
+  backgroundColor: '#ffffff'
 }];
 
 interface POSearchPanelProps extends RX.CommonProps {
@@ -39,10 +44,6 @@ interface POSearchPanelProps extends RX.CommonProps {
 
 interface POSearchPanelState {
   po: string;
-}
-
-interface ListViewItemInfo extends VirtualListViewItemInfo {
-  title: string;
 }
 
 const styles = {
@@ -128,18 +129,8 @@ export class POSearchPanel extends RX.Component<POSearchPanelProps, POSearchPane
   }
 
   private _renderItem(details: VirtualListViewCellRenderDetails<ListViewItemInfo>) {
-    const viewStyle = RX.Styles.createViewStyle({
-      height: 20,
-      backgroundColor: '#fff',
-      alignItems: 'center'
-    }, false);
-
     return (
-      <RX.View style={ viewStyle }>
-        <RX.Text>
-          { details.item.title }
-        </RX.Text>
-      </RX.View>
+      <ListViewCell itemInfo={ details.item } />
     );
   }
 

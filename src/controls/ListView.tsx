@@ -7,8 +7,11 @@ export interface ListViewProps {
   items: any[];
 }
 
-interface ListViewItemInfo extends VirtualListViewItemInfo {
+export interface VirtualListViewCellRenderDetails {};
+
+export interface ListViewItemInfo extends VirtualListViewItemInfo {
   title: string;
+  backgroundColor: string;
 }
 
 export class ListView extends RX.Component<ListViewProps, RX.Stateless> {
