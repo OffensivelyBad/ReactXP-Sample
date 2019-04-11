@@ -1,9 +1,9 @@
 import * as React from 'react';
-import * as RX from 'reactxp';
+import * as XP from 'reactxp';
 import { Button } from '../controls/Button';
 import { SearchTextField } from '../controls/SearchTextField';
 
-interface LoginPanelProps extends RX.CommonProps {
+interface LoginPanelProps extends XP.CommonProps {
   onLoginSuccess: () => void;
 }
 
@@ -14,22 +14,22 @@ interface LoginPanelState {
 }
 
 const styles = {
-  containerStyle: RX.Styles.createViewStyle({
+  containerStyle: XP.Styles.createViewStyle({
     padding: 16,
     justifyContent: 'center',
     alignItems: 'center'
   }),
-  scrollStyle: RX.Styles.createScrollViewStyle({
+  scrollStyle: XP.Styles.createScrollViewStyle({
     alignSelf: 'stretch',
     backgroundColor: '#f5fcff'
   }),
-  headerStyle: RX.Styles.createViewStyle({
+  headerStyle: XP.Styles.createViewStyle({
     height: 300,
     alignItems: 'center',
     justifyContent: 'center',
     margin: 6
   }),
-  headerTextStyle: RX.Styles.createTextStyle({
+  headerTextStyle: XP.Styles.createTextStyle({
     fontSize: 72,
     color: '#333fff'
   })
@@ -40,7 +40,7 @@ const testLogin = {
   password: 'test'
 }
 
-export class LoginPanel extends RX.Component<LoginPanelProps, LoginPanelState> {
+export class LoginPanel extends XP.Component<LoginPanelProps, LoginPanelState> {
 
   readonly state: LoginPanelState = {
     someValue: 0,
@@ -50,15 +50,15 @@ export class LoginPanel extends RX.Component<LoginPanelProps, LoginPanelState> {
 
   render() {
     return (
-      <RX.View useSafeInsets={ true }>
-        <RX.ScrollView style={ styles.scrollStyle }>
-          <RX.View style={ styles.containerStyle }>
+      <XP.View useSafeInsets={ true }>
+        <XP.ScrollView style={ styles.scrollStyle }>
+          <XP.View style={ styles.containerStyle }>
 
-            <RX.View style={ styles.headerStyle }>
-              <RX.Text style={ styles.headerTextStyle }>
+            <XP.View style={ styles.headerStyle }>
+              <XP.Text style={ styles.headerTextStyle }>
                 Cool App
-              </RX.Text>
-            </RX.View>
+              </XP.Text>
+            </XP.View>
 
             <SearchTextField
               value={ this.state.login }
@@ -77,9 +77,9 @@ export class LoginPanel extends RX.Component<LoginPanelProps, LoginPanelState> {
               title={ 'Login' }
             />
 
-          </RX.View>
-        </RX.ScrollView>
-      </RX.View>
+          </XP.View>
+        </XP.ScrollView>
+      </XP.View>
     );
   }
 
@@ -96,7 +96,7 @@ export class LoginPanel extends RX.Component<LoginPanelProps, LoginPanelState> {
   }
 
   private _onLoginFailed = () => {
-    RX.Alert.show('Attention!', 'The login supplied is not correct. Please try again');
+    XP.Alert.show('Attention!', 'The login supplied is not correct. Please try again');
   }
 
   private _onLoginSuccess = () => {

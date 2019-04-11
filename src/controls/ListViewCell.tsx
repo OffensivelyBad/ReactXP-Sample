@@ -1,27 +1,32 @@
 import * as React from 'react';
-import * as RX from 'reactxp';
+import * as XP from 'reactxp';
 import { ListViewItemInfo } from './ListView';
 
 export interface ListViewCellProps {
   itemInfo: ListViewItemInfo;
 }
 
-export class ListViewCell extends RX.Component<ListViewCellProps, RX.Stateless> {
+export class ListViewCell extends XP.Component<ListViewCellProps, XP.Stateless> {
 
   render() {
-    const viewStyle = RX.Styles.createViewStyle({
+    const viewStyle = XP.Styles.createViewStyle({
       height: this.props.itemInfo.height,
       backgroundColor: this.props.itemInfo.backgroundColor,
       alignItems: 'center',
-      justifyContent: 'center'
+      justifyContent: 'center',
+      shadowColor: '#000000',
+      shadowOpacity: 0.8,
+      shadowRadius: 6,
+      borderRadius: 6,
+      margin: 3
     }, false);
 
     return (
-      <RX.View style={ viewStyle }>
-        <RX.Text>
+      <XP.View style={ viewStyle }>
+        <XP.Text>
           { this.props.itemInfo.title }
-        </RX.Text>
-      </RX.View>
+        </XP.Text>
+      </XP.View>
     );
   }
 

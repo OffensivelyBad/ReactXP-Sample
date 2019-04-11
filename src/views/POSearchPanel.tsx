@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as RX from 'reactxp';
+import * as XP from 'reactxp';
 import { Button } from '../controls/Button';
 import { SearchTextField } from '../controls/SearchTextField';
 import { ListView, ListViewItemInfo, VirtualListViewCellRenderDetails } from '../controls/ListView';
@@ -38,7 +38,7 @@ const ITEMS = [{
   backgroundColor: '#ffffff'
 }];
 
-interface POSearchPanelProps extends RX.CommonProps {
+interface POSearchPanelProps extends XP.CommonProps {
   onPressLogout: () => void;
 }
 
@@ -47,28 +47,28 @@ interface POSearchPanelState {
 }
 
 const styles = {
-  scrollStyle: RX.Styles.createScrollViewStyle({
+  scrollStyle: XP.Styles.createScrollViewStyle({
     alignSelf: 'stretch',
     backgroundColor: '#f5fcff'
   }),
-  subScrollStyle: RX.Styles.createScrollViewStyle({
+  subScrollStyle: XP.Styles.createScrollViewStyle({
     margin: 20,
     flex: 1,
     height: 100,
     backgroundColor: '#333fff',
   }),
-  containerStyle: RX.Styles.createViewStyle({
+  containerStyle: XP.Styles.createViewStyle({
     padding: 16,
     justifyContent: 'center',
     alignItems: 'center'
   }),
-  headerStyle: RX.Styles.createViewStyle({
+  headerStyle: XP.Styles.createViewStyle({
     height: 300,
     alignItems: 'center',
     justifyContent: 'center',
     margin: 6
   }),
-  headerTextStyle: RX.Styles.createTextStyle({
+  headerTextStyle: XP.Styles.createTextStyle({
     fontSize: 72,
     color: '#333fff'
   }),
@@ -86,7 +86,7 @@ const styles = {
   }
 };
 
-export class POSearchPanel extends RX.Component<POSearchPanelProps, POSearchPanelState> {
+export class POSearchPanel extends XP.Component<POSearchPanelProps, POSearchPanelState> {
 
   readonly state: POSearchPanelState = {
     po: ''
@@ -94,15 +94,15 @@ export class POSearchPanel extends RX.Component<POSearchPanelProps, POSearchPane
 
   render() {
     return (
-      <RX.View useSafeInsets={ true }>
-        <RX.ScrollView style={ styles.scrollStyle }>
-          <RX.View style={ styles.containerStyle }>
+      <XP.View useSafeInsets={ true }>
+        <XP.ScrollView style={ styles.scrollStyle }>
+          <XP.View style={ styles.containerStyle }>
 
-            <RX.View style={ styles.headerStyle }>
-              <RX.Text style={ styles.headerTextStyle }>
+            <XP.View style={ styles.headerStyle }>
+              <XP.Text style={ styles.headerTextStyle }>
                 PO List
-              </RX.Text>
-            </RX.View>
+              </XP.Text>
+            </XP.View>
 
             <SearchTextField
               value= { this.state.po }
@@ -110,21 +110,21 @@ export class POSearchPanel extends RX.Component<POSearchPanelProps, POSearchPane
               placeholder={ 'PO Search...'}
             />
 
-            <RX.ScrollView style={ styles.subScrollStyle }>
+            <XP.ScrollView style={ styles.subScrollStyle }>
               <ListView
                 items={ ITEMS }
                 renderItem={ this._renderItem }
               />
-            </RX.ScrollView>
+            </XP.ScrollView>
 
             <Button
               title='Logout'
               onPress= { this._onPressLogout }
             />
 
-          </RX.View>
-        </RX.ScrollView>
-      </RX.View>
+          </XP.View>
+        </XP.ScrollView>
+      </XP.View>
     );
   }
 

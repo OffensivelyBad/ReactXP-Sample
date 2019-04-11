@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as RX from 'reactxp';
+import * as XP from 'reactxp';
 import { VirtualListView, VirtualListViewItemInfo, VirtualListViewCellRenderDetails } from 'reactxp-virtuallistview';
 
 export interface ListViewProps {
@@ -14,7 +14,7 @@ export interface ListViewItemInfo extends VirtualListViewItemInfo {
   backgroundColor: string;
 }
 
-export class ListView extends RX.Component<ListViewProps, RX.Stateless> {
+export class ListView extends XP.Component<ListViewProps, XP.Stateless> {
 
   render() {
     return (
