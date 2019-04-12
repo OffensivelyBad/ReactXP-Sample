@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as XP from 'reactxp';
 import { VirtualListView, VirtualListViewItemInfo, VirtualListViewCellRenderDetails } from 'reactxp-virtuallistview';
 
-export interface ListViewProps {
+interface ListViewProps {
   renderItem: (details: VirtualListViewCellRenderDetails<ListViewItemInfo>) => JSX.Element;
   items: any[];
 }

@@ -8,21 +8,22 @@ const styles = {
     flex: 1,
     height: 100,
     backgroundColor: '#333fff',
+    alignSelf: 'center'
   })
 };
 
 interface ScrollListViewProps {
-  width: 200;
-  height: 200;
+  width: number;
+  height: number;
   items: any[];
-  renderItem: () => JSX.Element;
+  renderItem: (details: any) => JSX.Element;
 }
 
 export class ScrollListView extends XP.Component<ScrollListViewProps, XP.Stateless> {
 
   render() {
     return (
-      <XP.ScrollView style={ styles.subScrollStyle }>
+      <XP.ScrollView style={[ styles.subScrollStyle, { height: this.props.height || 200, width: this.props.width || 200 } ]}>
         <ListView
           items={ this.props.items }
           renderItem={ this.props.renderItem }

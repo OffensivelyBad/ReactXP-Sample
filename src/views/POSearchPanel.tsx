@@ -2,8 +2,9 @@ import * as React from 'react';
 import * as XP from 'reactxp';
 import { Button } from '../controls/Button';
 import { SearchTextField } from '../controls/SearchTextField';
-import { ListView, ListViewItemInfo, VirtualListViewCellRenderDetails } from '../controls/ListView';
+import { ListViewItemInfo, VirtualListViewCellRenderDetails } from '../controls/ListView';
 import { ListViewCell } from '../controls/ListViewCell';
+import { ScrollListView } from '../controls/ScrollListView';
 
 const ITEMS = [{
   key: 'header1',
@@ -50,12 +51,6 @@ const styles = {
   scrollStyle: XP.Styles.createScrollViewStyle({
     alignSelf: 'stretch',
     backgroundColor: '#f5fcff'
-  }),
-  subScrollStyle: XP.Styles.createScrollViewStyle({
-    margin: 20,
-    flex: 1,
-    height: 100,
-    backgroundColor: '#333fff',
   }),
   containerStyle: XP.Styles.createViewStyle({
     padding: 16,
@@ -110,12 +105,12 @@ export class POSearchPanel extends XP.Component<POSearchPanelProps, POSearchPane
               placeholder={ 'PO Search...'}
             />
 
-            <XP.ScrollView style={ styles.subScrollStyle }>
-              <ListView
-                items={ ITEMS }
-                renderItem={ this._renderItem }
-              />
-            </XP.ScrollView>
+            <ScrollListView
+              width={600}
+              height={300}
+              items={ITEMS}
+              renderItem={this._renderItem}
+            />
 
             <Button
               title='Logout'
