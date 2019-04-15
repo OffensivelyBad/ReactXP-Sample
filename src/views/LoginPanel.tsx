@@ -64,12 +64,14 @@ export class LoginPanel extends XP.Component<LoginPanelProps, LoginPanelState> {
               value={ this.state.login }
               placeholder={ 'login' }
               onChangeText={ this._onChangeLoginText }
+              onSubmitEditing={ () => {} }
             />
             <SearchTextField
               value={ this.state.password }
               placeholder={ 'password' }
               onChangeText={ this._onChangePasswordText }
               secureTextEntry
+              onSubmitEditing={ this._onPressLogin }
             />
 
             <Button

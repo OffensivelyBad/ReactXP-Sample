@@ -7,6 +7,7 @@ export interface SearchTextFieldProps {
   placeholder: string;
   secureTextEntry?: boolean;
   onChangeText: (text: string) => void;
+  onSubmitEditing: () => void;
 }
 
 const _styles = {
@@ -37,6 +38,7 @@ export class SearchTextField extends RX.Component<SearchTextFieldProps, RX.State
         onChangeText={ this.props.onChangeText }
         placeholder={ this.props.placeholder }
         secureTextEntry={ this.props.secureTextEntry }
+        onSubmitEditing={ this.props.onSubmitEditing }
       />
     );
   }
