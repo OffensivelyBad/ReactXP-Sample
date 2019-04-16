@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as XP from 'reactxp';
 import { Button } from '../controls/Button';
-import { SearchTextField } from '../controls/SearchTextField';
+import { LoginTextField } from '../controls/LoginTextField';
 
 interface LoginPanelProps extends XP.CommonProps {
   onLoginSuccess: () => void;
@@ -60,18 +60,21 @@ export class LoginPanel extends XP.Component<LoginPanelProps, LoginPanelState> {
               </XP.Text>
             </XP.View>
 
-            <SearchTextField
+            <LoginTextField
               value={ this.state.login }
               placeholder={ 'login' }
               onChangeText={ this._onChangeLoginText }
               onSubmitEditing={ () => {} }
+              autoCorrect={false}
+              autoFocus={true}
             />
-            <SearchTextField
+            <LoginTextField
               value={ this.state.password }
               placeholder={ 'password' }
               onChangeText={ this._onChangePasswordText }
               secureTextEntry
               onSubmitEditing={ this._onPressLogin }
+              autoCorrect={false}
             />
 
             <Button

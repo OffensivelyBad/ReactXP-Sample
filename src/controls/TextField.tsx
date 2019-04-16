@@ -1,17 +1,19 @@
 import * as React from 'react';
-import * as RX from 'reactxp';
+import * as XP from 'reactxp';
 
-export interface SearchTextFieldProps {
-  searchStyle?: {};
+export interface TextFieldProps {
+  textStyle?: {};
   value: string;
   placeholder: string;
   secureTextEntry?: boolean;
   onChangeText: (text: string) => void;
   onSubmitEditing: () => void;
+  autoCorrect?: boolean;
+  autoFocus?: boolean;
 }
 
 const _styles = {
-  entryTextStyle: RX.Styles.createTextInputStyle({
+  entryTextStyle: XP.Styles.createTextInputStyle({
     fontSize: 30,
     marginBottom: 10,
     backgroundColor: '#ffffff',
@@ -24,16 +26,16 @@ const _styles = {
   })
 };
 
-export class SearchTextField extends RX.Component<SearchTextFieldProps, RX.Stateless> {
+export class TextField extends XP.Component<TextFieldProps, XP.Stateless> {
 
-  constructor(props: SearchTextFieldProps) {
+  constructor(props: TextFieldProps) {
     super(props);
   }
 
   render() {
     return (
-      <RX.TextInput
-        style={ [_styles.entryTextStyle, this.props.searchStyle] }
+      <XP.TextInput
+        style={ [_styles.entryTextStyle, this.props.textStyle] }
         value={ this.props.value }
         onChangeText={ this.props.onChangeText }
         placeholder={ this.props.placeholder }

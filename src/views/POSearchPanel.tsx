@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as XP from 'reactxp';
 import { Button } from '../controls/Button';
-import { SearchTextField } from '../controls/SearchTextField';
+import { TextField } from '../controls/TextField';
 import { ListViewItemInfo, VirtualListViewCellRenderDetails } from '../controls/ListView';
 import { ListViewCell } from '../controls/ListViewCell';
 import { ScrollListView } from '../controls/ScrollListView';
@@ -99,7 +99,7 @@ export class POSearchPanel extends XP.Component<POSearchPanelProps, POSearchPane
               </XP.Text>
             </XP.View>
 
-            <SearchTextField
+            <TextField
               value= { this.state.po }
               onChangeText= { this._onChangeSearchText }
               placeholder={ 'PO Search...'}
