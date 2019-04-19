@@ -27,7 +27,7 @@ export class LoginTextField extends XP.Component<LoginTextFieldProps, XP.Statele
         autoCorrect={ this.props.autoCorrect }
         autoFocus={ this.props.autoFocus }
       />
-    )
+    );
   }
 
 }

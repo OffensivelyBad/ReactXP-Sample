@@ -13,7 +13,11 @@ const _styles = {
     margin: 16,
     borderRadius: 6,
     backgroundColor: '#333fff',
-    width: 300
+    width: 300,
+    shadowColor: '#000000',
+    shadowOpacity: 0.3,
+    shadowRadius: 2,
+    shadowOffset: { width: 0, height: 2 }
   }),
   buttonTextStyle: RX.Styles.createTextStyle({
     fontSize: 30,

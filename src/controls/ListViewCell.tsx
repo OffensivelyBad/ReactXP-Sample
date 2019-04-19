@@ -9,16 +9,10 @@ interface ListViewCellProps {
 const contentStyle = XP.Styles.createViewStyle({
   alignItems: 'center',
   justifyContent: 'center'
-  // shadowColor: '#000000',
-  // shadowOpacity: 0.8,
-  // shadowRadius: 6,
 });
 
 export class ListViewCell extends XP.Component<ListViewCellProps, XP.Stateless> {
-
   render() {
-    
-
     return (
       <XP.View style={[ contentStyle, { height: this.props.itemInfo.height, backgroundColor: this.props.itemInfo.backgroundColor } ]}>
         <XP.Text>
@@ -27,5 +21,4 @@ export class ListViewCell extends XP.Component<ListViewCellProps, XP.Stateless> 
       </XP.View>
     );
   }
-
 }

@@ -7,7 +7,7 @@ interface ListViewProps {
   items: any[];
 }
 
-export interface VirtualListViewCellRenderDetails {};
+export interface VirtualListViewCellRenderDetails {}
 
 export interface ListViewItemInfo extends VirtualListViewItemInfo {
   title: string;

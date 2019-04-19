@@ -24,7 +24,7 @@ const ITEMS = [{
   title: 'SD12345-1234',
   template: 'detail',
   backgroundColor: '#ffffff'
-}, 
+},
 {
   key: 'po3',
   height: 30,

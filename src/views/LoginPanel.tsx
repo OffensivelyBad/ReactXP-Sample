@@ -38,7 +38,7 @@ const styles = {
 const testLogin = {
   login: 'test',
   password: 'test'
-}
+};
 
 export class LoginPanel extends XP.Component<LoginPanelProps, LoginPanelState> {
 
@@ -64,7 +64,6 @@ export class LoginPanel extends XP.Component<LoginPanelProps, LoginPanelState> {
               value={ this.state.login }
               placeholder={ 'login' }
               onChangeText={ this._onChangeLoginText }
-              onSubmitEditing={ () => {} }
               autoCorrect={false}
               autoFocus={true}
             />
