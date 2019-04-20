@@ -39,11 +39,11 @@ const ITEMS = [{
   backgroundColor: '#ffffff'
 }];
 
-interface POSearchPanelProps extends XP.CommonProps {
+interface SearchPanelProps extends XP.CommonProps {
   onPressLogout: () => void;
 }
 
-interface POSearchPanelState {
+interface SearchPanelState {
   po: string;
 }
 
@@ -81,9 +81,9 @@ const styles = {
   }
 };
 
-export class POSearchPanel extends XP.Component<POSearchPanelProps, POSearchPanelState> {
+export class SearchPanel extends XP.Component<SearchPanelProps, SearchPanelState> {
 
-  readonly state: POSearchPanelState = {
+  readonly state: SearchPanelState = {
     po: ''
   };
 
