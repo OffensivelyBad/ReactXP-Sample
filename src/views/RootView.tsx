@@ -5,13 +5,13 @@ import Navigator, { NavigatorDelegateSelector as DelegateSelector, Types } from 
 import { MainPanel } from './MainPanel';
 import { SecondPanel } from './SecondPanel';
 import { LoginPanel } from './LoginPanel';
-import { POSearchPanel } from './POSearchPanel';
+import { SearchPanel } from './SearchPanel';
 
 enum NavigationRouteId {
     MainPanel,
     SecondPanel,
     LoginPanel,
-    POSearchPanel
+    SearchPanel
 }
 
 const styles = {
@@ -66,9 +66,9 @@ export class RootView extends RX.Component<RX.CommonProps, RX.Stateless> {
                     <LoginPanel onLoginSuccess={ this._onPressLogin } />
                 );
 
-            case NavigationRouteId.POSearchPanel:
+            case NavigationRouteId.SearchPanel:
                 return (
-                    <POSearchPanel onPressLogout={ this._onPressLogout } />
+                    <SearchPanel onPressLogout={ this._onPressLogout } />
                 );
         }
 
@@ -94,7 +94,7 @@ export class RootView extends RX.Component<RX.CommonProps, RX.Stateless> {
         if (this._navigator) {
             this._navigator.push({
                 sceneConfigType: Types.NavigatorSceneConfigType.FadeWithSlide,
-                routeId: NavigationRouteId.POSearchPanel
+                routeId: NavigationRouteId.SearchPanel
             });
         }
     }
