@@ -8,7 +8,7 @@ interface LoginTextFieldProps {
   placeholder: string;
   secureTextEntry?: boolean;
   onChangeText: (text: string) => void;
-  onSubmitEditing: () => void;
+  onSubmitEditing?: () => void;
   autoCorrect?: boolean;
   autoFocus?: boolean;
 }
