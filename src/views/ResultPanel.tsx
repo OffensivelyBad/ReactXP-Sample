@@ -39,12 +39,11 @@ const ITEMS = [{
   backgroundColor: '#ffffff'
 }];
 
-interface SearchPanelProps extends XP.CommonProps {
+interface ResultPanelProps extends XP.CommonProps {
   onPressLogout: () => void;
-  onSelectItem: (item: any) => void;
 }
 
-interface SearchPanelState {
+interface ResultPanelState {
   po: string;
 }
 
@@ -82,9 +81,9 @@ const styles = {
   }
 };
 
-export class SearchPanel extends XP.Component<SearchPanelProps, SearchPanelState> {
+export class ResultPanel extends XP.Component<ResultPanelProps, ResultPanelState> {
 
-  readonly state: SearchPanelState = {
+  readonly state: ResultPanelState = {
     po: ''
   };
 
@@ -126,7 +125,7 @@ export class SearchPanel extends XP.Component<SearchPanelProps, SearchPanelState
 
   private _renderItem(details: VirtualListViewCellRenderDetails<ListViewItemInfo>) {
     return (
-      <ListViewCell itemInfo={ details.item } onSelectItem={this.props.onSelectItem} />
+      <ListViewCell itemInfo={ details.item } />
     );
   }
 

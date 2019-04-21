@@ -6,12 +6,14 @@ import { MainPanel } from './MainPanel';
 import { SecondPanel } from './SecondPanel';
 import { LoginPanel } from './LoginPanel';
 import { SearchPanel } from './SearchPanel';
+import { ResultPanel } from './ResultPanel';
 
 enum NavigationRouteId {
     MainPanel,
     SecondPanel,
     LoginPanel,
-    SearchPanel
+    SearchPanel,
+    ResultPanel
 }
 
 const styles = {
@@ -68,7 +70,7 @@ export class RootView extends RX.Component<RX.CommonProps, RX.Stateless> {
 
             case NavigationRouteId.SearchPanel:
                 return (
-                    <SearchPanel onPressLogout={ this._onPressLogout } />
+                    <SearchPanel onPressLogout={ this._onPressLogout } onSelectItem={ this._onSelectSearchItem } />
                 );
         }
 
@@ -104,6 +106,15 @@ export class RootView extends RX.Component<RX.CommonProps, RX.Stateless> {
             this._navigator.push({
                 sceneConfigType: Types.NavigatorSceneConfigType.FloatFromBottom,
                 routeId: NavigationRouteId.LoginPanel
+            });
+        }
+    }
+
+    private _onSelectSearchItem = (item) => {
+        if (this._navigator) {
+            this._navigator.push({
+                sceneConfigType: Types.NavigatorSceneConfigType.Fade,
+                routeId: NavigationRouteId.ResultPanel
             });
         }
     }
