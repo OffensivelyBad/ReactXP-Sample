@@ -41,7 +41,6 @@ const testLogin = {
 };
 
 export class LoginPanel extends XP.Component<LoginPanelProps, LoginPanelState> {
-
   readonly state: LoginPanelState = {
     someValue: 0,
     login: '',
@@ -50,37 +49,30 @@ export class LoginPanel extends XP.Component<LoginPanelProps, LoginPanelState> {
 
   render() {
     return (
-      <XP.View useSafeInsets={ true }>
-        <XP.ScrollView style={ styles.scrollStyle }>
-          <XP.View style={ styles.containerStyle }>
-
-            <XP.View style={ styles.headerStyle }>
-              <XP.Text style={ styles.headerTextStyle }>
-                Cool App
-              </XP.Text>
+      <XP.View useSafeInsets={true}>
+        <XP.ScrollView style={styles.scrollStyle}>
+          <XP.View style={styles.containerStyle}>
+            <XP.View style={styles.headerStyle}>
+              <XP.Text style={styles.headerTextStyle}>Cool App</XP.Text>
             </XP.View>
 
             <LoginTextField
-              value={ this.state.login }
-              placeholder={ 'login' }
-              onChangeText={ this._onChangeLoginText }
+              value={this.state.login}
+              placeholder={'login'}
+              onChangeText={this._onChangeLoginText}
               autoCorrect={false}
               autoFocus={true}
             />
             <LoginTextField
-              value={ this.state.password }
-              placeholder={ 'password' }
-              onChangeText={ this._onChangePasswordText }
+              value={this.state.password}
+              placeholder={'password'}
+              onChangeText={this._onChangePasswordText}
               secureTextEntry
-              onSubmitEditing={ this._onPressLogin }
+              onSubmitEditing={this._onPressLogin}
               autoCorrect={false}
             />
 
-            <Button
-              onPress={ this._onPressLogin }
-              title={ 'Login' }
-            />
-
+            <Button onPress={this._onPressLogin} title={'Login'} />
           </XP.View>
         </XP.ScrollView>
       </XP.View>
@@ -89,7 +81,7 @@ export class LoginPanel extends XP.Component<LoginPanelProps, LoginPanelState> {
 
   private _onPressLogin = () => {
     this._validateLogin(this.state.login, this.state.password);
-  }
+  };
 
   private _validateLogin = (login: string, password: string) => {
     if (login === testLogin.login && password === testLogin.password) {
@@ -97,22 +89,24 @@ export class LoginPanel extends XP.Component<LoginPanelProps, LoginPanelState> {
     } else {
       this._onLoginFailed();
     }
-  }
+  };
 
   private _onLoginFailed = () => {
-    XP.Alert.show('Attention!', 'The login supplied is not correct. Please try again');
-  }
+    XP.Alert.show(
+      'Attention!',
+      'The login supplied is not correct. Please try again'
+    );
+  };
 
   private _onLoginSuccess = () => {
     this.props.onLoginSuccess();
-  }
+  };
 
   private _onChangeLoginText = (text: string) => {
     this.setState({ login: text });
-  }
+  };
 
   private _onChangePasswordText = (text: string) => {
     this.setState({ password: text });
-  }
-
+  };
 }

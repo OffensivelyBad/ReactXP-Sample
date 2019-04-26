@@ -29,21 +29,22 @@ const _styles = {
 };
 
 class Button extends RX.Component<ButtonProps, RX.Stateless> {
-
   constructor(props: ButtonProps) {
     super(props);
   }
 
   render() {
     return (
-      <RX.Button style={ [_styles.buttonStyle, this.props.buttonStyle] } onPress={ this.props.onPress }>
-        <RX.Text style={ [_styles.buttonTextStyle, this.props.textStyle] }>
+      <RX.Button
+        style={[_styles.buttonStyle, this.props.buttonStyle]}
+        onPress={this.props.onPress}
+      >
+        <RX.Text style={[_styles.buttonTextStyle, this.props.textStyle]}>
           {this.props.title}
         </RX.Text>
       </RX.Button>
     );
   }
-
 }
 
 export { Button };

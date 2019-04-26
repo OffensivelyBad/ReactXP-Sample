@@ -13,21 +13,22 @@ interface LoginTextFieldProps {
   autoFocus?: boolean;
 }
 
-export class LoginTextField extends XP.Component<LoginTextFieldProps, XP.Stateless> {
-
+export class LoginTextField extends XP.Component<
+  LoginTextFieldProps,
+  XP.Stateless
+> {
   render() {
     return (
       <TextField
-        textStyle={ this.props.textStyle }
-        value={ this.props.value }
-        onChangeText={ this.props.onChangeText }
-        placeholder={ this.props.placeholder }
-        secureTextEntry={ this.props.secureTextEntry }
-        onSubmitEditing={ this.props.onSubmitEditing }
-        autoCorrect={ this.props.autoCorrect }
-        autoFocus={ this.props.autoFocus }
+        textStyle={this.props.textStyle}
+        value={this.props.value}
+        onChangeText={this.props.onChangeText}
+        placeholder={this.props.placeholder}
+        secureTextEntry={this.props.secureTextEntry}
+        onSubmitEditing={this.props.onSubmitEditing}
+        autoCorrect={this.props.autoCorrect}
+        autoFocus={this.props.autoFocus}
       />
     );
   }
-
 }

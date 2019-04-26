@@ -31,24 +31,22 @@ const _styles = {
 };
 
 export class TextField extends XP.Component<TextFieldProps, XP.Stateless> {
-
   constructor(props: TextFieldProps) {
     super(props);
   }
 
   render() {
     return (
-      <XP.View style={ _styles.containerStyle }>
+      <XP.View style={_styles.containerStyle}>
         <XP.TextInput
-          style={ [_styles.entryTextStyle, this.props.textStyle] }
-          value={ this.props.value }
-          onChangeText={ this.props.onChangeText }
-          placeholder={ this.props.placeholder }
-          secureTextEntry={ this.props.secureTextEntry }
-          onSubmitEditing={ this.props.onSubmitEditing }
+          style={[_styles.entryTextStyle, this.props.textStyle]}
+          value={this.props.value}
+          onChangeText={this.props.onChangeText}
+          placeholder={this.props.placeholder}
+          secureTextEntry={this.props.secureTextEntry}
+          onSubmitEditing={this.props.onSubmitEditing}
         />
       </XP.View>
     );
   }
-
 }

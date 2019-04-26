@@ -4,7 +4,7 @@ import { ListViewItemInfo } from './ListView';
 
 interface ListViewCellProps {
   itemInfo: ListViewItemInfo;
-  onSelectItem: (item: any) => void;
+  onSelectItem?: (item: any) => void;
 }
 
 const contentStyle = XP.Styles.createViewStyle({
@@ -12,16 +12,23 @@ const contentStyle = XP.Styles.createViewStyle({
   justifyContent: 'center'
 });
 
-export class ListViewCell extends XP.Component<ListViewCellProps, XP.Stateless> {
+export class ListViewCell extends XP.Component<
+  ListViewCellProps,
+  XP.Stateless
+> {
   render() {
     return (
       <XP.Button
-        style={[ contentStyle, { height: this.props.itemInfo.height, backgroundColor: this.props.itemInfo.backgroundColor } ]}
+        style={[
+          contentStyle,
+          {
+            height: this.props.itemInfo.height,
+            backgroundColor: this.props.itemInfo.backgroundColor
+          }
+        ]}
         onPress={this.props.onSelectItem}
       >
-        <XP.Text>
-          { this.props.itemInfo.title }
-        </XP.Text>
+        <XP.Text>{this.props.itemInfo.title}</XP.Text>
       </XP.Button>
     );
   }

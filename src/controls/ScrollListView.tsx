@@ -19,17 +19,20 @@ interface ScrollListViewProps {
   renderItem: (details: any) => JSX.Element;
 }
 
-export class ScrollListView extends XP.Component<ScrollListViewProps, XP.Stateless> {
-
+export class ScrollListView extends XP.Component<
+  ScrollListViewProps,
+  XP.Stateless
+> {
   render() {
     return (
-      <XP.ScrollView style={[ styles.subScrollStyle, { height: this.props.height || 200, width: this.props.width || 200 } ]}>
-        <ListView
-          items={ this.props.items }
-          renderItem={ this.props.renderItem }
-        />
+      <XP.ScrollView
+        style={[
+          styles.subScrollStyle,
+          { height: this.props.height || 200, width: this.props.width || 200 }
+        ]}
+      >
+        <ListView items={this.props.items} renderItem={this.props.renderItem} />
       </XP.ScrollView>
     );
   }
-
 }
